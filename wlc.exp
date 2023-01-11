@@ -1,0 +1,47 @@
+#!/usr/bin/expect
+
+#password generator
+set creds [exec cat file.txt]
+
+#change id of wlan
+set wlan 3
+
+#credentials
+set router [ lindex $argv 0]
+set username [ lindex $argv 1]
+set password [ lindex $argv 2]
+
+spawn ssh $router
+set timeout 10
+
+#commands
+expect "(yes/no)?" {
+send "yes\r"; exp_continue }
+expect "User:"
+send -- "$username\r"
+expect "assword:"
+send -- "$password\r"
+expect "Controller)"
+
+#add in your command here with same syntax, this is where you would run your command
+
+#change wlan <id>
+send -- "config wlan disable $wlan\r" 
+expect "Controller"
+
+#change wlan <id> and <password>
+send -- "config wlan security wpa akm psk set-key ascii $creds 3\r"
+expect "Controller"
+
+#change wlan <id>
+send -- "config wlan enable $wlan\r"
+expect "Controller"
+
+#save changes
+send  "save config\r"
+expect "(y/N)"
+send -- "y\r"
+expect "Controller"
+send "logout\r"
+
+expect eof
