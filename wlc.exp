@@ -1,10 +1,7 @@
 #!/usr/bin/expect
 
-#password generator
 set creds [exec cat file.txt]
-
-#change id of wlan
-set wlan 3
+set wlan [exec cat wl.txt]
 
 #credentials
 set router [ lindex $argv 0]
