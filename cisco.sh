@@ -1,7 +1,8 @@
 #!/bin/bash
 
 echo "============================"
-echo "Changing wifi password in Cisco AP~~ by sapphire"
+echo "Changing wifi password in Cisco AP~~ by s4pphireek"
+figlet s4pphireek
 
 #creds
 device=""
