@@ -9,9 +9,9 @@ user=""
 psw=""
 wl=""  
 
-haslo=$(tr -cd '[:alnum:]' < /dev/urandom | fold -w 12 | head -n 1) 
-echo $haslo > file.txt
-echo "Generated password: " $haslo
+hsw=$(tr -cd '[:alnum:]' < /dev/urandom | fold -w 12 | head -n 1) 
+echo $hsw > file.txt
+echo "Generated password: " $hsw
 echo $wl > wl.txt
 
 ./wlc.exp $device $user $psw
