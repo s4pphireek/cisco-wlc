@@ -1,5 +1,5 @@
 # CISCO WLC password changer🌍
-A simple script to change the password of a Wifi access point - Cisco WLC
+A simple bash script to change the password of a Wifi access point - Cisco WLC
 
 ## Contributing
 
